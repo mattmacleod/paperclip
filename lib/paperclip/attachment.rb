@@ -309,6 +309,7 @@ module Paperclip
     end
 
     def post_process_styles( *style_args ) #:nodoc:
+      log "Limiting reprocessing to: #{style_args.join(", ")}" unless style_args.empty?
       styles.each do |name, style|
         begin
           if style_args.empty? || style_args.include?(name)             
