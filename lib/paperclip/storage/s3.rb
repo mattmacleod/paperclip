@@ -144,7 +144,7 @@ module Paperclip
       def flush_writes #:nodoc:
         @queued_for_write.each do |style, file|
           begin
-            log("saving #{path(style)}")
+            log("saving to S3 #{path(style)}")
             AWS::S3::S3Object.store(path(style),
                                     file,
                                     bucket_name,
